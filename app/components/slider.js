@@ -47,6 +47,9 @@ export default class Slider {
         const bounds = this.slides[0].getBoundingClientRect()
         const slideHeight = bounds.height
 
+        const firstItem = this.slides[0]
+        firstItem.height = firstItem.getBoundingClientRect().height / 2
+
         this.state.sliderHeight = this.slidesNumb * slideHeight
         this.state.max = -(this.state.sliderHeight - window.innerHeight)
 
@@ -83,7 +86,7 @@ export default class Slider {
 
     off(e) {
         // to turn off snap, comment this.snap() here
-        // this.snap()
+        this.snap()
         this.state.isDragging = false
         this.state.offY = this.state.currentY
         this.slider.classList.remove('is-grabbing')
@@ -153,6 +156,7 @@ export default class Slider {
 
     init() {
         this.setBounds()
+        this.snap()
         this.addEventListeners()
     }
 }

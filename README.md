@@ -42,3 +42,10 @@ Simple vertical slider
 <br />
 <br />
 ![slider 3](demo/slider3.gif)
+
+#### Slider 4
+
+Slider like Nahel Moussi (but not infinite)
+<br />
+<br />
+![slider 3](demo/slider4.gif)
