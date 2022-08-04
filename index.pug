@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        include ./views/partials/head
+        include ./views/partials/noscript
+        
+    body 
+        .app
+            .webgl__wrapper     
+                canvas.webgl 
+            .app__wrapper.smooth-scroll
+                .js-fake-scroll.smooth-scroll-fake
+                .smooth-scroll__content
+                    .home.js-parent
+                        include ./views/partials/slider
+
+            .header
+            .cursor
+            .page-transition 
+            .preloader
+
+        script(src="main.js") 
