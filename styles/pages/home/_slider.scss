@@ -1,0 +1,74 @@
+.slider{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  cursor: grab;
+  
+  &.is-grabbing{
+    cursor: grabbing;
+  }
+}
+
+.slider__inner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.slide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60vw;
+  height: 60vh;
+  padding: 1rem;
+}
+
+.slide__bg{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  background-image: url('dog.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide__title{
+  position: relative;
+  color: #fff;
+  font-size: calc(1rem + 3vw);
+  font-weight: normal;
+  z-index: 2;
+}
+
+.slider__progress {
+  position: absolute;
+  background-color: #666;
+  width: 15vw;
+  height: 0.1vw;
+  left: 4rem;
+  top: 3rem;
+  opacity: 0.6;
+}
+
+.slider__progress-bar {
+  width: 3vw;
+  height: 0.2vw;
+  background: #fff;
+  transform: translateY(-25%);
+}
+
+.text{
+  position: absolute;
+  color: #666;
+  left: 4rem;
+  bottom: 3rem;
+}

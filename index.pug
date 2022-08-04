@@ -5,18 +5,15 @@ html(lang="en")
         include ./views/partials/noscript
         
     body 
-        .app
-            .webgl__wrapper     
-                canvas.webgl 
-            .app__wrapper.smooth-scroll
-                .js-fake-scroll.smooth-scroll-fake
-                .smooth-scroll__content
-                    .home.js-parent
-                        include ./views/partials/slider
-
-            .header
-            .cursor
-            .page-transition 
-            .preloader
+        main.app
+            .app__wrapper
+                .webgl__wrapper     
+                    canvas.webgl 
+                include ./views/partials/slider
+                .header
+                .cursor__wrapper    
+                    .cursor
+                .page-transition 
+                .preloader
 
         script(src="main.js") 

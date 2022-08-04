@@ -29,9 +29,27 @@ img{
   height: auto;
 }
 
-.smooth-scroll__content {
-  width: 100%;
+.app {
+  height: 100%;
+}
+
+.app__wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-wrapper{
   position: fixed;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+
+.cursor{
+  position: fixed;
+  top: -30px;
+  left: -30px;
 }
