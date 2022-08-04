@@ -23,18 +23,18 @@ export default class Slider {
         this.state = {
             isDragging: false,
 
-            sliderWidth: 0,
+            sliderHeight: 0,
 
-            onX: 0,
-            offX: 0,
+            onY: 0,
+            offY: 0,
 
-            currentX: 0,
-            targetX: 0,
+            currentY: 0,
+            targetY: 0,
 
             min: 0,
             max: 0,
 
-            centerX: window.innerWidth / 2,
+            centerY: window.innerHeight / 2,
         }
     }
 
@@ -45,47 +45,47 @@ export default class Slider {
 
     setBounds() {
         const bounds = this.slides[0].getBoundingClientRect()
-        const slideWidth = bounds.width
+        const slideHeight = bounds.height
 
-        this.state.sliderWidth = this.slidesNumb * slideWidth
-        this.state.max = -(this.state.sliderWidth - window.innerWidth)
+        this.state.sliderHeight = this.slidesNumb * slideHeight
+        this.state.max = -(this.state.sliderHeight - window.innerHeight)
 
         this.slides.forEach((slide, index) => {
-            slide.style.left = `${index * slideWidth}px`
+            slide.style.top = `${index * slideHeight}px`
         })
     }
 
     onMove(e) {
         if (!this.state.isDragging) return
-        this.state.currentX = this.state.offX + ((e.clientX - this.state.onX) * this.opts.speed)
+        this.state.currentY = this.state.offY + ((e.clientY - this.state.onY) * this.opts.speed)
         this.clamp()
     }
 
     clamp() {
-        this.state.currentX = Math.max(Math.min(this.state.currentX, this.state.min), this.state.max)
+        this.state.currentY = Math.max(Math.min(this.state.currentY, this.state.min), this.state.max)
     }
 
     update() {
-        this.state.targetX = lerp(this.state.targetX, this.state.currentX, this.opts.ease)
-        this.state.targetX = Math.floor(this.state.targetX * 100) / 100
+        this.state.targetY = lerp(this.state.targetY, this.state.currentY, this.opts.ease)
+        this.state.targetY = Math.floor(this.state.targetY * 100) / 100
 
         // to add a skew effect as well, write the skew transfor here
-        this.sliderInner.style.transform = `translate3d(${this.state.targetX}px, 0, 0)`
+        this.sliderInner.style.transform = `translate3d(0, ${this.state.targetY}px, 0)`
 
         this.requestAnimationFrame()
     }
 
     on(e) {
         this.state.isDragging = true
-        this.state.onX = e.clientX
+        this.state.onY = e.clientY
         this.slider.classList.add('is-grabbing')
     }
 
     off(e) {
         // to turn off snap, comment this.snap() here
-        this.snap()
+        // this.snap()
         this.state.isDragging = false
-        this.state.offX = this.state.currentX
+        this.state.offY = this.state.currentY
         this.slider.classList.remove('is-grabbing')
     }
 
@@ -93,9 +93,9 @@ export default class Slider {
         const numbers = []
         this.slides.forEach((slide, index) => {
             const bounds = slide.getBoundingClientRect()
-            const diff = this.state.currentX - this.state.targetX
-            const center = (bounds.x + diff) + (bounds.width / 2)
-            const fromCenter = this.state.centerX - center
+            const diff = this.state.currentY - this.state.targetY
+            const center = (bounds.y + diff) + (bounds.height / 2)
+            const fromCenter = this.state.centerY - center
             numbers.push(fromCenter)
         })
 
@@ -110,7 +110,7 @@ export default class Slider {
     snap() {
         const { closest } = this.closest()
 
-        this.state.currentX = this.state.currentX + closest
+        this.state.currentY = this.state.currentY + closest
         this.clamp()
     }
 
