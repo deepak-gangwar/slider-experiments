@@ -1,3 +1,5 @@
+import { _getClosest } from "../utils/math"
+import { number } from "../utils/math"
 import { lerp } from "../utils/math"
 
 export default class Slider {
@@ -67,6 +69,7 @@ export default class Slider {
         this.state.targetX = lerp(this.state.targetX, this.state.currentX, this.opts.ease)
         this.state.targetX = Math.floor(this.state.targetX * 100) / 100
 
+        // to add a skew effect as well, write the skew transfor here
         this.sliderInner.style.transform = `translate3d(${this.state.targetX}px, 0, 0)`
 
         this.requestAnimationFrame()
@@ -79,9 +82,36 @@ export default class Slider {
     }
 
     off(e) {
+        // to turn off snap, comment this.snap() here
+        this.snap()
         this.state.isDragging = false
         this.state.offX = this.state.currentX
         this.slider.classList.remove('is-grabbing')
+    }
+
+    closest() {
+        const numbers = []
+        this.slides.forEach((slide, index) => {
+            const bounds = slide.getBoundingClientRect()
+            const diff = this.state.currentX - this.state.targetX
+            const center = (bounds.x + diff) + (bounds.width / 2)
+            const fromCenter = this.state.centerX - center
+            numbers.push(fromCenter)
+        })
+
+        let closest = number(0, numbers)
+        closest = numbers[closest]
+
+        return {
+            closest
+        }
+    }
+
+    snap() {
+        const { closest } = this.closest()
+
+        this.state.currentX = this.state.currentX + closest
+        this.clamp()
     }
 
     requestAnimationFrame() {
