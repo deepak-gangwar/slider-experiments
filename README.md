@@ -1,11 +1,7 @@
-# Deepak Gangwar Frontend Developer Portfolio '22
+# Slider Experiments
 
-## 🧊 About Webpack config
-Simple webpack configuration to start writing projects. Currently using Webpack 5.
-
-All the things from `shared` folder will be copied to public folder.
-
-Only the images and fonts that are being used will be imported in public folder.
+## ✌ About this project
+This is a project that started with my obsession with sliders. I wanted to know how they worked and to create all types of sliders by my own.
 
 ### Installation
 ```bash
@@ -22,27 +18,12 @@ npm run dev
 npm run build
 ```
 
-### HTML
-We are using Pug as a template engine for HTML. If you want to use plain HTML and remove pug, you can 
-- remove the `pug-loader` in webpack.common.js
-- change `index.pug` to `index.html` in HtmlWebpackPlugin in webpack.common.js 
+### 👻 Sliders
+> Following are mentioned sliders with their commits and demo gifs. 
+>To try any one of them, check code of the respective commit.
 
-### CSS
-We are using SCSS. 
-Especially because of the ability to add partials and write modular styles. 
-So that we can separate our styles of individual views and components into separate files. 
-All these styles reside in the `styles` folder.
-
-### Images
-Keep all the images in ~~`assets`~~ `shared` folder
-
-**How to access them**
-- As `'a.png'` in JavaScript
-- As ~~`'assets/a.png'`~~ `'a.png'`in HTML
-
-### Fonts
-Currently I have kept fonts in the `assets/fonts`. You can also keep them in `fonts` folder in `root` directory as well. 
-
-**How to access them**
-- `('../fonts/abc.woff2')` if fonts folder is in root
-- `('../assets/fonts/abc.woff2')` if fonts folder is in assets
+#### Slider 1
+Simple horizontal slider
+<br />
+<br />
+![slider 1](demo/slider1.gif)
