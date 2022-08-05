@@ -8,7 +8,7 @@ This is a project that started with my obsession with sliders. I wanted to know 
 
 ```bash
 # Clone the repo on you local machine
-git clone git@github.com:deepak-gangwar/bundler-webpack-config.git
+git clone git@github.com:deepak-gangwar/slider-experiments.git
 
 # To install dependencies
 npm install
