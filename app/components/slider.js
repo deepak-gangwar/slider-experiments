@@ -56,6 +56,8 @@ export default class Slider {
         this.slides.forEach((slide, index) => {
             slide.style.top = `${index * slideHeight}px`
         })
+
+        this.observe()
     }
 
     onMove(e) {
@@ -115,6 +117,34 @@ export default class Slider {
 
         this.state.currentY = this.state.currentY + closest
         this.clamp()
+    }
+
+    observe() {
+        let ww = 30 - ((window.innerWidth / window.innerHeight) * 10)
+        console.log(ww)
+        let options = {
+            root: null,
+            rootMargin: `-${ww}% 0px -${ww}% 0px`,
+            threshold: 1.0
+        }
+
+        let observer = new IntersectionObserver(this.activeItem, options)
+
+        this.slides.forEach(slide => {
+            observer.observe(slide)
+        })
+    }
+
+    activeItem(entries) {
+        entries.forEach((entry) => {
+            if (entry.intersectionRatio == 1) {
+                entry.target.classList.add('is-active');
+                // entry.target.style.opacity = 1
+            } else {
+                entry.target.classList.remove('is-active');
+                // entry.target.style.opacity = 0.3
+            }
+        })
     }
 
     requestAnimationFrame() {
