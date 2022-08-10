@@ -1,4 +1,4 @@
-import Slider from "./components/slider"
+import { Slider } from "./components/slider"
 
 class App {
     constructor() {

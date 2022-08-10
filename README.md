@@ -60,3 +60,10 @@ Simple side slider for web project
 <br />
 <br />
 ![slider 6](demo/slider6.gif)
+
+#### Slider 7
+
+Slick webgl slider. Design based on above slider with WebGL shader effects incorporated.
+<br />
+<br />
+![slider 7](demo/slider7.gif)

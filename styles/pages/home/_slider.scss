@@ -32,6 +32,11 @@
   padding: 0.4rem;
   transform: translateX(90%);
   transition: transform 1.2s cubic-bezier(.165,.84,.44,1) 0.1s, opacity 1.2s cubic-bezier(.165,.84,.44,1) 0.1s;
+
+  img {
+    visibility: hidden;
+    // display: none;
+  }
 }
 
 .is-active {
@@ -47,7 +52,7 @@
   width: 30vw;
   height: 20vh;
   // background-image: url('https://images.unsplash.com/photo-1659325687496-1a55e566a0db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60');
-  background-image: url('gradient.jpg');
+  // background-image: url('gradient.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
