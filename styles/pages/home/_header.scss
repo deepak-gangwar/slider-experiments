@@ -1,0 +1,22 @@
+.header {
+  font-family: 'Suisse Intl';
+  position: absolute;
+  color: #fff;
+  left: 4rem;
+  top: 3rem;
+}
+
+.header__list {
+    margin: 0;
+    padding: 0;
+}
+
+.header__item {
+    display: inline-block;
+    margin-right: 20px;
+    opacity: 0.6;
+}
+
+.header__item.is-active {
+    opacity: 1
+}

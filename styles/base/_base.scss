@@ -11,7 +11,9 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
-  background-color: #0D0E13;
+  background: rgb(12,11,47);
+  background: radial-gradient(circle, rgba(12,11,47,1) 0%, rgba(13,14,19,1) 100%);
+  // background-color: #0D0E13;
   color: #FFFFFF;
 }
 
@@ -27,6 +29,10 @@ img{
   display: block;
   width: 100%;
   height: auto;
+}
+
+ul, li {
+  list-style: none;
 }
 
 .app {

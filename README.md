@@ -48,4 +48,15 @@ Simple vertical slider
 Slider like Nahel Moussi (but not infinite)
 <br />
 <br />
-![slider 3](demo/slider4.gif)
+![slider 4](demo/slider4.gif)
+
+#### Slider 5
+
+Scroll controls are added to the above slider. Commit 2d2a202
+
+#### Slider 6
+
+Simple side slider for web project
+<br />
+<br />
+![slider 6](demo/slider6.gif)

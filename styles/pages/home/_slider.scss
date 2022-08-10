@@ -29,7 +29,8 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  padding: 1rem;
+  padding: 0.4rem;
+  transform: translateX(90%);
   transition: transform 1.2s cubic-bezier(.165,.84,.44,1) 0.1s, opacity 1.2s cubic-bezier(.165,.84,.44,1) 0.1s;
 }
 
@@ -37,20 +38,24 @@
   opacity: 1;
 }
 
-// .slide__bg{
-//   position: absolute;
-//   top: 10%;
-//   left: 10%;
-//   bottom: 10%;
-//   right: 10%;
-//   background-image: url('https://images.unsplash.com/photo-1659325687496-1a55e566a0db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60');
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
+.slide__bg{
+  position: relative;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  width: 30vw;
+  height: 20vh;
+  // background-image: url('https://images.unsplash.com/photo-1659325687496-1a55e566a0db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60');
+  background-image: url('gradient.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .slide__title {
-  position: relative;
+  display: none;
+  position: absolute;
   color: #fff;
   // font-size: calc(1rem + 3vw);
   font-size: 14vw;
@@ -80,4 +85,17 @@
   color: #666;
   left: 4rem;
   bottom: 3rem;
+}
+
+.heading {
+  font-family: 'PP Eiko Light', sans-serif;
+  position: absolute;
+  color: #fff;
+  left: 4rem;
+  bottom: 8rem;
+}
+
+.heading__title {
+  font-size: 2.4vw;
+  line-height: 1.4;
 }

@@ -47,7 +47,7 @@ export default class Slider {
     }
 
     setBounds() {
-        const bounds = this.slides[0].getBoundingClientRect()
+        const bounds = this.slides[1].getBoundingClientRect()
         const slideHeight = bounds.height
 
         const firstItem = this.slides[0]
