@@ -22,6 +22,7 @@ export default class Slider {
 
         this.state = {
             isDragging: false,
+            isScrolling: false,
 
             sliderHeight: 0,
 
@@ -36,10 +37,12 @@ export default class Slider {
 
             centerY: window.innerHeight / 2,
         }
+
+        this.timer = null
     }
 
     bind() {
-        ['onMove', 'update', 'on', 'off', 'resize']
+        ['onMove', 'onWheel', 'update', 'on', 'off', 'resize']
             .forEach((fn) => this[fn] = this[fn].bind(this))
     }
 
@@ -125,9 +128,31 @@ export default class Slider {
         cancelAnimationFrame(this.rAF)
     }
 
+    onWheel(e) {
+        this.state.isScrolling = true
+
+        this.state.currentY -= e.deltaY / 2
+        this.state.offY = this.state.currentY
+        this.state.targetY = lerp(this.state.targetY, this.state.currentY, this.opts.ease)
+        this.clamp()
+
+        // this.slider.classList.add('is-grabbing')
+
+        if (this.timer !== null) {
+            window.clearTimeout(this.timer)
+        }
+        this.timer = window.setTimeout(() => {
+            // do something when scrolling stops
+            this.state.isScrolling = false
+            // this.snap()
+            // this.slider.classList.remove('is-grabbing')
+        }, 200)
+    }
+
     addEventListeners() {
         this.update()
 
+        this.slider.addEventListener('wheel', this.onWheel, false)
         this.slider.addEventListener('mousemove', this.onMove, { passive: true })
         this.slider.addEventListener('mousedown', this.on, false)
         this.slider.addEventListener('mouseup', this.off, false)
