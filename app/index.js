@@ -6,8 +6,7 @@ class App {
     }
 
     init() {
-        const slider = new Slider()
-        slider.init()
+        new Slider()
     }
 }
 new App()
