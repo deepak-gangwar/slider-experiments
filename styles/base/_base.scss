@@ -59,3 +59,17 @@ ul, li {
   top: -30px;
   left: -30px;
 }
+
+.notice {
+  background: #0D0E13;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0 ;
+  left: 0;
+  z-index: 9999;
+}

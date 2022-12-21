@@ -1,4 +1,5 @@
 import { Slider } from "./components/slider"
+import { Sniff } from "./utils/Sniffer"
 
 class App {
     constructor() {
@@ -7,7 +8,17 @@ class App {
     }
 
     init() {
-        new Slider()
+        if(Sniff.mobile) {
+            const notice = document.createElement('div')
+            notice.classList.add('notice')
+        
+            const para = document.createElement('p')
+            para.textContent = `This site is currently not for mobile. Please visit on a desktop.`
+            notice.appendChild(para)
+            document.body.appendChild(notice)
+        } else {
+            new Slider()
+        }
     }
 
     styleConsoleForDevs() {
